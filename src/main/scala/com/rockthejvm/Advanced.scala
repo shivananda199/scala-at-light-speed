@@ -65,4 +65,11 @@ object Advanced extends App {
   }
   println(12.isEven())  //true
   println(11.isEven())  //false
+
+  //use case 3: implicit conversion - implicit classes
+  case class Person (name: String) {
+    def greet = println(s"My name is $name")
+  }
+  implicit def fromStringToPerson (name: String) = Person(name)
+  "Shiva".greet   // === fromStringToPerson("Shiva").greet
 }
